@@ -1,0 +1,10 @@
+{
+  "name": "Eskom App",
+  "short_name": "Eskom",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}
