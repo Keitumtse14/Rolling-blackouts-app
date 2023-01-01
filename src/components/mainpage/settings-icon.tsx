@@ -7,6 +7,7 @@ const SettingsIcon = () => {
     <div className="flex justify-end mr-2">
       <Link href="/settings">
         <svg
+          className='hover:scale-110'
           width="28"
           height="30"
           viewBox="0 0 28 30"
