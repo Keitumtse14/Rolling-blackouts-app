@@ -1,8 +1,12 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+
+
 import SettingsIcon from '../components/mainpage/settings-icon';
 import LoadSheddingInfo from "../components/mainpage/load-shedding-info";
 import AddAreaInfo from "../components/mainpage/add-area-info";
+
+
 
 const Home: NextPage = () => {
 
@@ -23,5 +27,7 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+
 
 export default Home;
