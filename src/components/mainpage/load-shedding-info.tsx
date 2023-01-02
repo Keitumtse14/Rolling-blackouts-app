@@ -10,7 +10,7 @@ function LoadSheddingInfo() {
           <div>Power Off 12:00 - 16:00</div>
         </div>
       </div>
-      <div className="h-40 w-40 bg-red-500 text-white rounded-full mx-auto relative">
+      <div className="h-40 w-40 bg-red-500 text-white rounded-full mx-auto hover:scale-125 relative">
         <div className="absolute left-5 top-4">
           <h1 className="text-xl text-center mb-6">Stage 6</h1>
           <div className="text-xs text-center mb-8">

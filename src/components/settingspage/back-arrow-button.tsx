@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const BackArrowButton = () => {
   return (
-    <Link href=".">
+    <Link href="." className='inline-block'>
       <svg
         className='hover:scale-110'
         width="40px" height="40px" viewBox="-3 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">

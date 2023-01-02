@@ -3,13 +3,13 @@ import React from 'react'
 function AddArea() {
   return (
     <div className="flex border-t-2 mt-6 border-black">
-      <button className="flex items-center mx-auto my-40">
+      <button className="flex items-center mx-auto my-40 hover:scale-110">
         Add Area
         <div className="ml-2 mt-1">
           <svg
 
-            width="12"
-            height="12"
+            width="15"
+            height="15"
             viewBox="0 0 12 12"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
