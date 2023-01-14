@@ -13,7 +13,6 @@ function LoadSheddingInfo() {
       try {
         setIsLoading(true);
         const response = await fetch('http://localhost:8010/proxy/status', {
-          method: 'GET',
           headers: {
             "token": '6088BC7E-D684456A-876D29F3-D6EABD4B',
           }
@@ -41,7 +40,7 @@ function LoadSheddingInfo() {
         <div className="absolute left-5 top-4">
           <h1 className="text-xl text-center mb-6 ml-7">Stage {statusData}</h1>
           <div className="text-xs mb-8 ml-2 text-center">
-            {nextstageData && nextstageData.object.array.length > 0 && <div>Stage {nextstageData} starts {nextstageTimeData}</div>}
+            {nextstageData && nextstageData > 0 && <div>Stage {nextstageData} starts {nextstageTimeData}</div>}
           </div>
           <button className="text-xs ml-8">More info</button>
         </div>

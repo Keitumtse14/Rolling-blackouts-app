@@ -14,7 +14,6 @@ function MyModal() {
 
       try {
         const response = await fetch(`http://localhost:8010/proxy/areas_search?text=${areasearch}`, {
-          method: 'GET',
           headers: {
             "token": "6088BC7E-D684456A-876D29F3-D6EABD4B"
           }
