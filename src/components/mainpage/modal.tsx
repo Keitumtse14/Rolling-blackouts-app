@@ -6,7 +6,7 @@ function MyModal() {
   const [searchResult, setSearchResult] = useState('')
 
 
-  const handleEvent = async (event: KeyboardEvent) => {
+  const handleEvent = async (event: React.KeyboardEvent<HTMLInputElement>) => {
 
     if (event.key === 'Enter') {
 
