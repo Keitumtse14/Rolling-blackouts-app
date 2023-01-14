@@ -1,26 +1,54 @@
-import React from 'react'
+import { useState, useEffect, useRef } from 'react';
 
 function LoadSheddingInfo() {
+  const [statusData, setStatusData] = useState(null)
+  const [nextstageData, setnextstageData] = useState(null)
+  const [nextstageTimeData, setnextstageTimeData] = useState(null)
+  const [isLoading, setIsLoading] = useState(true);
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (!isInitialMount.current) return;
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('http://localhost:8010/proxy/status', {
+          method: 'GET',
+          headers: {
+            "token": '6088BC7E-D684456A-876D29F3-D6EABD4B',
+          }
+        });
+
+        const status = await response.json();
+        setStatusData(status?.status?.eskom?.stage)
+        setnextstageData(status?.status?.eskom?.next_stages[0].stage)
+        setnextstageTimeData(status?.status?.eskom?.next_stages[0].stage_start_timestamp.substring(11, 16))
+
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+    isInitialMount.current = false;
+  }, []);
+
   return (
     <div className="flex">
-      <div className=" text-xs my-auto mx-auto">
-        <div> Vosloorus Ext 8</div>
-        <div>
-          <div> Eskom Direct </div>
-          <div>Power Off 12:00 - 16:00</div>
-        </div>
-      </div>
-      <div className="h-40 w-40 bg-red-500 text-white rounded-full mx-auto hover:scale-125 relative">
+
+      {(statusData) ? <div className="h-40 w-40 bg-red-600 text-white rounded-full mx-auto hover:scale-125 relative transition duration-250">
         <div className="absolute left-5 top-4">
-          <h1 className="text-xl text-center mb-6">Stage 6</h1>
-          <div className="text-xs text-center mb-8">
-            Stage 5 starts tomorrow
+          <h1 className="text-xl text-center mb-6 ml-7">Stage {statusData}</h1>
+          <div className="text-xs mb-8 ml-2 text-center">
+            {nextstageData && nextstageData.object.array.length > 0 && <div>Stage {nextstageData} starts {nextstageTimeData}</div>}
           </div>
           <button className="text-xs ml-8">More info</button>
         </div>
-      </div>
+      </div> : <div className="mx-auto text-2xl ">...</div>}
     </div>
-  )
+  );
 }
+
 
 export default LoadSheddingInfo

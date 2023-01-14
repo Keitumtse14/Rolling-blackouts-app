@@ -1,4 +1,3 @@
-import React from 'react'
 
 const AutoLocationButton = () => {
   return (
@@ -10,7 +9,7 @@ const AutoLocationButton = () => {
           type="checkbox"
           id="auto-location-toggle-switch"
         />
-        <div className="absolute w-5 h-5 rounded-full outline top-[232px] peer-checked:translate-x-5 hover:cursor-pointer" ></div>
+        <div className="absolute w-5 h-5 rounded-full outline top-[232px] peer-checked:translate-x-5 hover:cursor-pointer hover:scale-110" ></div>
       </label>
     </div>
   )

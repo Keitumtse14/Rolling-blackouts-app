@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ThemeButton = () => {
   return (
     <div className="flex items-center justify-between mt-8">
@@ -10,7 +8,7 @@ const ThemeButton = () => {
           type="checkbox"
           id="theme-toggle-switch"
         />
-        <div className="relative w-5 h-5 rounded-full outline -top-[26px] peer-checked:translate-x-5 hover:cursor-pointer" ></div>
+        <div className="relative w-5 h-5 rounded-full outline -top-[26px] peer-checked:translate-x-5 hover:cursor hover:scale-110" ></div>
       </label>
     </div>
   )
