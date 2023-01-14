@@ -7,6 +7,8 @@ function LoadSheddingInfo() {
   const [isLoading, setIsLoading] = useState(true);
   const isInitialMount = useRef(true);
 
+  console.log(isLoading);
+
   useEffect(() => {
     if (!isInitialMount.current) return;
     const fetchData = async () => {
