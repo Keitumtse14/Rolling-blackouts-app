@@ -8,7 +8,6 @@ import ThemeButton from '../components/settingspage/theme-button';
 import AutoLocationButton from '../components/settingspage/auto-location-button';
 
 
-
 const Settings: NextPage = () => {
   return <>
     <Head>

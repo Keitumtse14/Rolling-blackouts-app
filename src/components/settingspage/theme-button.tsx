@@ -8,7 +8,7 @@ const ThemeButton = () => {
           type="checkbox"
           id="theme-toggle-switch"
         />
-        <div className="relative w-5 h-5 rounded-full outline -top-[26px] peer-checked:translate-x-5 hover:cursor hover:scale-110" ></div>
+        <div className="relative w-5 h-5 rounded-full outline -top-[26px] peer-checked:translate-x-5 hover:cursor" ></div>
       </label>
     </div>
   )

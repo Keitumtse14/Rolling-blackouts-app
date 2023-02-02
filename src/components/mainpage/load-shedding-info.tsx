@@ -37,10 +37,9 @@ function LoadSheddingInfo() {
 
   return (
     <div className="flex">
-
       {(statusData) ? <div className="h-40 w-40 bg-red-600 text-white rounded-full mx-auto hover:scale-125 relative transition duration-250">
         <div className="absolute left-5 top-4">
-          <h1 className="text-xl text-center mb-6 ml-7">Stage {statusData}</h1>
+          <h1 className="text-xl text-center mb-6 ml-3">Stage {statusData}</h1>
           <div className="text-xs mb-8 ml-2 text-center">
             {nextstageData && nextstageData > 0 && <div>Stage {nextstageData} starts {nextstageTimeData}</div>}
           </div>

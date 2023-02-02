@@ -28,23 +28,22 @@ function MyModal() {
   }
 
 
-  return <>
-    {
-      isToggled ? <AddAreaInfo /> : <div className='flex items-center justify-center'>
-        <input
-          className='border-solid border-black border-2 rounded mt-20 inline-block g'
-          type="search"
-          name="area-search"
-          id="search"
-          onChange={event => setSearchResult(event.target.value)}
-          onKeyDown={handleEvent} />
-        <button className=" ml-2 mt-[80px]" onClick={() => setIsToggled(!isToggled)}>X</button>
-      </div>
-    }
-  </>
-
-
-
+  return (
+    <>
+      {
+        isToggled ? <AddAreaInfo /> : <div className='flex items-center justify-center'>
+          <input
+            className='border-solid border-black border-2 rounded mt-20 inline-block g'
+            type="search"
+            name="area-search"
+            id="search"
+            onChange={event => setSearchResult(event.target.value)}
+            onKeyDown={handleEvent} />
+          <button className=" ml-2 mt-[80px]" onClick={() => setIsToggled(!isToggled)}>X</button>
+        </div>
+      }
+    </>
+  )
 }
 
 export default MyModal;
