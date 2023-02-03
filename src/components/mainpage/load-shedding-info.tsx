@@ -16,7 +16,7 @@ function LoadSheddingInfo() {
         setIsLoading(true);
         const response = await fetch('http://localhost:8010/proxy/status', {
           headers: {
-            "token": '6088BC7E-D684456A-876D29F3-D6EABD4B',
+            "token": 'Your key',
           }
         });
 
