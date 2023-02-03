@@ -8,4 +8,4 @@ Unfortunately API limitations prevent hosting it
 2. Install the dependencies
 3. go to https://eskomsepush.gumroad.com/l/api?layout=profile and subscribe for the free teir
 4. Once you get the API token emailed to you, go to load-shedding-info.tsx and modal.tsx
-5. Add the token key to the `"token": TOKEN` in the fetch requests in both the components
+5. Add the token key to the `"token": YOUR_TOKEN_KEY` in the fetch requests in both the components
