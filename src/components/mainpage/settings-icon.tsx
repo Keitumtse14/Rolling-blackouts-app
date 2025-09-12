@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const SettingsIcon = () => {
   return (
-    <div className="flex justify-end mr-2">
+    <div className="settings-bar" style={{ position: 'absolute', top: '2rem', right: '2rem', zIndex: 10 }}>
       <Link href="/settings">
         <img
           src="/settings-svgrepo-com.svg"

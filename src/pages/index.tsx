@@ -15,10 +15,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="max-w-screen-sm mx-auto mt-2">
+      <main className="max-w-screen-sm mx-auto mt-2 flex flex-col min-h-screen justify-between relative">
         <SettingsIcon />
-        <LoadSheddingInfo />
-        <AddAreaInfo />
+        <div>
+          <LoadSheddingInfo />
+        </div>
+        <div className="flex justify-center items-center py-16">
+          <AddAreaInfo />
+        </div>
       </main>
     </>
   );

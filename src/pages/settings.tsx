@@ -16,14 +16,14 @@ const Settings: NextPage = () => {
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <div className="max-w-screen-sm mt-4 mx-auto">
-      <div className="ml-2">
+    <div className="settings-container mt-4 mx-auto flex flex-col items-center justify-center">
+      <div className="settings-column flex flex-col items-center justify-center gap-8 w-full">
         <BackArrowButton />
         <NotificationButton />
         <ThemeButton />
         <AutoLocationButton />
       </div>
-    </div>;
+    </div>
   </>
 }
 

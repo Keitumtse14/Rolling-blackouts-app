@@ -1,3 +1,67 @@
+@media (min-width: 1440px) {
+	main {
+		padding-top: 10rem !important;
+	}
+}
+#next {
+	/* ...existing code... */
+}
+
+@media (min-width: 1200px) {
+	main {
+		max-width: clamp(1000px, 70vw, 1400px);
+		padding: 7rem 3rem 2rem 3rem;
+		margin-inline: auto;
+		box-shadow: 0 0 24px 0 rgba(0,0,0,0.08);
+		border-radius: 2rem;
+	}
+	.settings-bar {
+		right: 3rem !important;
+		top: 3rem !important;
+	}
+	img, svg {
+		width: clamp(3rem, 5vw, 4rem) !important;
+		height: clamp(3rem, 5vw, 4rem) !important;
+	}
+}
+/* Disable all scrolling */
+html, body, #next {
+	overflow: hidden !important;
+}
+/* Center main inside div#next */
+#next {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	min-width: 100vw;
+	height: 100vh;
+	width: 100vw;
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+/* Center main content for larger screens */
+@media (min-width: 768px) {
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+	}
+	.flex {
+		justify-content: center !important;
+		align-items: center !important;
+	}
+}
+main {
+	min-height: 100vh;
+	width: 100%;
+	margin: 0 !important;
+}
 
 @tailwind base;
 @tailwind components;
@@ -5,6 +69,54 @@
 
 @import "tailwindcss/base";
 
+html {
+	min-height: 100vh;
+	width: 100%;
+	margin-inline: auto;
+	max-width: 900px;
+}
 body, html {
 	font-family: 'Poppins', sans-serif;
+}
+
+/* Clamp-based scaling for text, padding, margin, and SVGs */
+/* Responsive text sizing handled by media queries below */
+
+/* Responsive main and spacing handled by media queries below */
+
+/* Responsive icon sizing handled by media queries below */
+@media (min-width: 1200px) {
+	main {
+		max-width: 1400px;
+		padding: 7rem 3rem 2rem 3rem;
+		margin-inline: auto;
+		box-shadow: 0 0 24px 0 rgba(0,0,0,0.08);
+		border-radius: 2rem;
+	}
+	.settings-bar {
+		right: 3rem !important;
+		top: 3rem !important;
+	}
+	img, svg {
+		width: 4rem !important;
+		height: 4rem !important;
+	}
+	h1, h2, h3, h4, h5, h6, .text-3xl, .text-2xl, .text-xl, .text-lg, .text-md, .text-sm, .text-xs, span, p, button {
+		font-size: 2rem;
+		max-width: 60ch;
+	}
+}
+
+@media (min-width: 1440px) {
+	main {
+		padding-top: 10rem !important;
+	}
+	img, svg {
+		width: 5rem !important;
+		height: 5rem !important;
+	}
+	h1, h2, h3, h4, h5, h6, .text-3xl, .text-2xl, .text-xl, .text-lg, .text-md, .text-sm, .text-xs, span, p, button {
+		font-size: 2.5rem;
+		max-width: 70ch;
+	}
 }
