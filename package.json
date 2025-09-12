@@ -1,5 +1,5 @@
 {
-  "name": "proxy",
+  "name": "rolling-blackouts-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,7 +18,7 @@
     "axios": "^1.2.2",
     "eslint-plugin-import": "^2.26.0",
     "json5": "^2.2.3",
-    "local-cors-proxy": "^1.1.0",
+
     "next": "13.1.1",
     "next-pwa": "^5.6.0",
     "react": "18.2.0",

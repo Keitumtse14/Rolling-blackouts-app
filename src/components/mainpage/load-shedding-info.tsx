@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 
 function fetchStatus() {
-  return fetch('http://localhost:8010/proxy/status', {
+  return fetch('http://localhost:8010/status', {
     headers: {
       "token": 'Your key',
     }

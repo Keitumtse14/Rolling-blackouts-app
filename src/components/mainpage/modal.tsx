@@ -11,7 +11,7 @@ function MyModal() {
     queryKey: ['area-search', searchTerm],
     queryFn: async () => {
       if (!searchTerm) return null;
-      const response = await fetch(`http://localhost:8010/proxy/areas_search?text=${searchTerm}`, {
+      const response = await fetch(`http://localhost:8010/areas_search?text=${searchTerm}`, {
         headers: {
           "token": "Your key"
         }
