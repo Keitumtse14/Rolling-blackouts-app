@@ -1,6 +1,6 @@
 @media (min-width: 1440px) {
 	main {
-		padding-top: 10rem !important;
+		padding-top: 10rem;
 	}
 }
 #next {
@@ -38,12 +38,12 @@
 		border-radius: 2rem;
 	}
 	.settings-bar {
-		right: 3rem !important;
-		top: 3rem !important;
+	right: 3rem;
+	top: 3rem;
 	}
 	img, svg {
-		width: clamp(3rem, 5vw, 4rem) !important;
-		height: clamp(3rem, 5vw, 4rem) !important;
+	width: clamp(3rem, 5vw, 4rem);
+	height: clamp(3rem, 5vw, 4rem);
 	}
 }
 /* Disable all scrolling */
@@ -61,8 +61,8 @@
 	/* height: 100dvh; */
 	/* width: 100vw; */
 	box-sizing: border-box;
-	margin-bottom: 0 !important;
-	padding-bottom: 0 !important;
+	margin-bottom: 0;
+	padding-bottom: 0;
 /* }
 */
 /* Center main content for larger screens */
@@ -77,13 +77,13 @@
 		box-sizing: border-box;
 	}
 	.flex {
-		justify-content: center !important;
-		align-items: center !important;
+	justify-content: center;
+	align-items: center;
 	}
 }
 main {
 	box-sizing: border-box;
-	margin-top: 0 !important;
+	margin-top: 0;
 }
 
 .query-data {
@@ -125,12 +125,12 @@ body, html {
 		border-radius: 2rem;
 	}
 	.settings-bar {
-		right: 3rem !important;
-		top: 3rem !important;
+	right: 3rem;
+	top: 3rem;
 	}
 	img, svg {
-		width: 4rem !important;
-		height: 4rem !important;
+	width: 4rem;
+	height: 4rem;
 	}
 	h1, h2, h3, h4, h5, h6, .text-3xl, .text-2xl, .text-xl, .text-lg, .text-md, .text-sm, .text-xs, span, p, button {
 		font-size: 2rem;
@@ -144,8 +144,8 @@ body, html {
 		/* No top padding */
 	}
 	img, svg {
-		width: 5rem !important;
-		height: 5rem !important;
+	width: 5rem;
+	height: 5rem;
 	}
 	h1, h2, h3, h4, h5, h6, .text-3xl, .text-2xl, .text-xl, .text-lg, .text-md, .text-sm, .text-xs, span, p, button {
 		font-size: 2.5rem;
