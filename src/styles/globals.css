@@ -101,7 +101,6 @@ main {
 html {
 	min-height: 100vh;
 	margin-inline: auto;
-	max-width: 900px;
 	box-sizing: border-box;
 }
 /* Apply box-sizing globally */

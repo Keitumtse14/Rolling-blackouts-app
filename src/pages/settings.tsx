@@ -19,8 +19,8 @@ const Settings: NextPage = () => {
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <div className="settings-container mt-4 mx-auto flex flex-col items-center justify-center">
-      <div className="settings-column flex flex-col gap-6 w-full">
+    <div className="settings-container mx-auto flex flex-col items-center justify-center">
+      <div className="settings-column flex flex-col gap-6 w-full mx-auto" style={{ width: '100dvh', height: '100vh' }}>
         <div className="w-full flex flex-row items-center justify-between py-4 border-b gap-4">
           <span className="text-xl font-medium">Notifications</span>
           <div className="flex items-center">

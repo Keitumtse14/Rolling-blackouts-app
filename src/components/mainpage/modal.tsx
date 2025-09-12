@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import AddAreaInfo from './add-area-info'
+import Image from 'next/image';
+import AddAreaInfo from './add-area-info';
 
 function MyModal() {
   const [isToggled, setIsToggled] = useState(false);
@@ -42,7 +43,15 @@ function MyModal() {
             onChange={event => setSearchResult(event.target.value)}
             onKeyDown={handleEvent}
           />
-          <button className=" ml-2 mt-[80px]" onClick={() => setIsToggled(!isToggled)}>X</button>
+          <button className="ml-2 mt-[80px]" onClick={() => setIsToggled(!isToggled)} aria-label="Close">
+            <Image
+              src="/close-circle-svgrepo-com.svg"
+              alt="Close"
+              width={16}
+              height={16}
+              className="min-w-[1rem] min-h-[1rem]"
+            />
+          </button>
         </div>
       )}
       {/* Show area search results */}

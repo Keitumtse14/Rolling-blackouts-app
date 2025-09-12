@@ -11,7 +11,7 @@ function AddArea() {
       onClick={() => setAddAreaToggle(!addAreaToggle)}
       className="flex items-center mx-auto my-40 hover:scale-110">
       <span className="text-3xl font-bold">Add Area</span>
-  <div className="ml-4">
+      <div className="ml-4">
         <img
           src="/add-circle-svgrepo-com.svg"
           alt="Add Area"
