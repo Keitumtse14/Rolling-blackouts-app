@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const SettingsIcon = () => {
   return (
-    <div className="settings-bar" style={{ position: 'absolute', top: '2rem', right: '2rem', zIndex: 10 }}>
+  <div className="settings-bar" style={{ position: 'absolute', top: 0, right: 0, zIndex: 10, padding: '0.5rem' }}>
       <Link href="/settings">
         <img
           src="/settings-svgrepo-com.svg"

@@ -1,14 +1,17 @@
+import React from "react";
 import { type NextPage } from "next";
 import Head from "next/head"
 
 
 import BackArrowButton from '../components/settingspage/back-arrow-button';
-import NotificationButton from '../components/settingspage/notification-button';
-import ThemeButton from '../components/settingspage/theme-button';
-import AutoLocationButton from '../components/settingspage/auto-location-button';
+import ToggleSwitch from '../components/settingspage/toggle-switch';
 
 
 const Settings: NextPage = () => {
+  const [notificationEnabled, setNotificationEnabled] = React.useState(false);
+  const [autoLocationEnabled, setAutoLocationEnabled] = React.useState(false);
+  const [themeEnabled, setThemeEnabled] = React.useState(false);
+
   return <>
     <Head>
       <title>Settings</title>
@@ -17,11 +20,28 @@ const Settings: NextPage = () => {
     </Head>
 
     <div className="settings-container mt-4 mx-auto flex flex-col items-center justify-center">
-      <div className="settings-column flex flex-col items-center justify-center gap-8 w-full">
-        <BackArrowButton />
-        <NotificationButton />
-        <ThemeButton />
-        <AutoLocationButton />
+      <div className="settings-column flex flex-col gap-6 w-full">
+        <div className="w-full flex flex-row items-center justify-between py-4 border-b gap-4">
+          <span className="text-xl font-medium">Notifications</span>
+          <div className="flex items-center">
+            <ToggleSwitch checked={notificationEnabled} onChange={setNotificationEnabled} id="notification-toggle" />
+          </div>
+        </div>
+        <div className="w-full flex flex-row items-center justify-between py-4 border-b gap-4">
+          <span className="text-xl font-medium">Auto location</span>
+          <div className="flex items-center">
+            <ToggleSwitch checked={autoLocationEnabled} onChange={setAutoLocationEnabled} id="auto-location-toggle" />
+          </div>
+        </div>
+        <div className="w-full flex flex-row items-center justify-between py-4 border-b gap-4">
+          <span className="text-xl font-medium">Theme</span>
+          <div className="flex items-center">
+            <ToggleSwitch checked={themeEnabled} onChange={setThemeEnabled} id="theme-toggle" />
+          </div>
+        </div>
+        <div className="w-full flex items-center justify-center py-4">
+          <BackArrowButton />
+        </div>
       </div>
     </div>
   </>
