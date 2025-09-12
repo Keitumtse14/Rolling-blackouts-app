@@ -1,16 +1,30 @@
+
+
 import React from "react";
 import { type NextPage } from "next";
-import Head from "next/head"
-
-
-import BackArrowButton from '../components/settingspage/back-arrow-button';
+import Head from "next/head";
 import ToggleSwitch from '../components/settingspage/toggle-switch';
+import BackArrowButton from '../components/settingspage/back-arrow-button';
 
+const useLocalStorageToggle = (key: string, initial: boolean) => {
+  const [value, setValue] = React.useState(() => {
+    if (typeof window === 'undefined') return initial;
+    const stored = window.localStorage.getItem(key);
+    return stored !== null ? stored === 'true' : initial;
+  });
+  const setAndStore = (val: boolean) => {
+    setValue(val);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(key, val.toString());
+    }
+  };
+  return [value, setAndStore] as const;
+};
 
 const Settings: NextPage = () => {
-  const [notificationEnabled, setNotificationEnabled] = React.useState(false);
-  const [autoLocationEnabled, setAutoLocationEnabled] = React.useState(false);
-  const [themeEnabled, setThemeEnabled] = React.useState(false);
+  const [notificationEnabled, setNotificationEnabled] = useLocalStorageToggle('notificationEnabled', false);
+  const [autoLocationEnabled, setAutoLocationEnabled] = useLocalStorageToggle('autoLocationEnabled', false);
+  const [themeEnabled, setThemeEnabled] = useLocalStorageToggle('themeEnabled', false);
 
   return <>
     <Head>
@@ -44,7 +58,7 @@ const Settings: NextPage = () => {
         </div>
       </div>
     </div>
-  </>
-}
+  </>;
+};
 
-export default Settings
+export default Settings;
