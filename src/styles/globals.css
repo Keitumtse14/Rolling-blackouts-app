@@ -1,5 +1,10 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import "tailwindcss/base";
+
+body, html {
+	font-family: 'Poppins', sans-serif;
+}

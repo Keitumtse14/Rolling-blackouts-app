@@ -9,8 +9,8 @@ const SettingsIcon = () => {
           src="/settings-svgrepo-com.svg"
           alt="Settings"
           className="hover:scale-110"
-          width={28}
-          height={30}
+          width={40}
+          height={40}
         />
       </Link>
     </div>
