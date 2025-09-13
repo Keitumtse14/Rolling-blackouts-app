@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const BackButton: React.FC = () => {
   const router = useRouter();
@@ -9,7 +10,7 @@ const BackButton: React.FC = () => {
       className="flex items-center px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium"
       aria-label="Go back"
     >
-      <img
+      <Image
         src="/arrow-left-svgrepo-com.svg"
         alt="Back"
         width={24}

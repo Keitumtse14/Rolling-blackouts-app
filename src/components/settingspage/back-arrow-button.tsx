@@ -1,9 +1,10 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const BackArrowButton = () => {
   return (
     <Link href="." className='inline-block'>
-      <img
+      <Image
         src="/round-arrow-left-svgrepo-com.svg"
         alt="Back Arrow"
         className="hover:scale-110"

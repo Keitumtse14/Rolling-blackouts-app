@@ -1,11 +1,12 @@
 import Link from "next/link"
+import Image from "next/image"
 
 
 const SettingsIcon = () => {
   return (
     <div className="settings-bar" style={{ position: 'absolute', top: 0, right: 0, zIndex: 10, padding: '0.5rem' }}>
       <Link href="/settings">
-        <img
+        <Image
           src="/settings-svgrepo-com.svg"
           alt="Settings"
           className="hover:scale-110"
