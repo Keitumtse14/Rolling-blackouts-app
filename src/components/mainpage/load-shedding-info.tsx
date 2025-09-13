@@ -1,23 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
+import { trpc } from '../../utils/trpc';
 
 
-function fetchStatus() {
-  // return fetch('http://localhost:8010/status', {
-  //   headers: {
-  //     "token": 'Your key',
-  //   }
-  // }).then(res => res.json());
-}
 
 function LoadSheddingInfo() {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ['status'],
-    queryFn: fetchStatus,
-  });
+  const { data, isLoading, error } = trpc.status.get.useQuery();
 
-  // When fetch is commented out, show a placeholder message
+  if (isLoading) return <div className="mx-auto text-2xl text-gray-500">Loading load shedding info...</div>;
+  if (error) return <div className="mx-auto text-2xl text-red-500">Error loading info.</div>;
   return (
-    <div className="mx-auto text-2xl text-gray-500">Load shedding info is currently disabled.</div>
+    <div className="mx-auto text-2xl text-gray-900 dark:text-gray-100">
+      {data ? JSON.stringify(data) : "No data available."}
+    </div>
   );
 }
 
