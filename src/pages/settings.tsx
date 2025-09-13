@@ -1,11 +1,10 @@
-
-
 import React from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Toast from '../components/settingspage/toast';
 import ToggleSwitch from '../components/settingspage/toggle-switch';
 import BackArrowButton from '../components/settingspage/back-arrow-button';
+import { ThemeContext } from './_app';
 
 const useLocalStorageToggle = (key: string, initial: boolean) => {
   const [value, setValue] = React.useState(() => {
@@ -23,14 +22,29 @@ const useLocalStorageToggle = (key: string, initial: boolean) => {
 };
 
 const Settings: NextPage = () => {
+  const { themeEnabled, setThemeEnabled } = React.useContext(ThemeContext);
   const [notificationEnabled, setNotificationEnabled] = useLocalStorageToggle('notificationEnabled', false);
   const [autoLocationEnabled, setAutoLocationEnabled] = useLocalStorageToggle('autoLocationEnabled', false);
-  const [themeEnabled, setThemeEnabled] = useLocalStorageToggle('themeEnabled', false);
   const [toast, setToast] = React.useState<{ show: boolean; message: string }>({ show: false, message: '' });
   const showToast = (message: string) => {
     setToast({ show: true, message });
   };
   const closeToast = () => setToast({ show: false, message: '' });
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const root = window.document.documentElement;
+      if (themeEnabled) {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+    }
+  }, [themeEnabled]);
+  if (!mounted) return null;
 
   return (
     <>
@@ -41,7 +55,7 @@ const Settings: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="settings-container flex flex-col items-center justify-center min-h-screen w-full px-2 sm:px-4 md:px-8" style={{ minHeight: '100vh' }}>
-        <div className="settings-column flex flex-col gap-4 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl mx-auto bg-white rounded-lg shadow-md p-2 sm:p-4 md:p-8 lg:p-12 xl:p-16" style={{ width: '100%', minWidth: '0' }}>
+        <div className="settings-column flex flex-col gap-4 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl mx-auto bg-white dark:bg-gray-900 rounded-lg shadow-md p-2 sm:p-4 md:p-8 lg:p-12 xl:p-16" style={{ width: '100%', minWidth: '0' }}>
           <div className="w-full flex flex-row items-center justify-between py-2 sm:py-3 md:py-4 lg:py-6 xl:py-8 border-b gap-2 sm:gap-4 lg:gap-6 xl:gap-8">
             <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium">Notifications</span>
             <div className="flex items-center">
@@ -55,9 +69,9 @@ const Settings: NextPage = () => {
             </div>
           </div>
           <div className="w-full flex flex-row items-center justify-between py-2 sm:py-3 md:py-4 lg:py-6 xl:py-8 border-b gap-2 sm:gap-4 lg:gap-6 xl:gap-8">
-            <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium">Theme</span>
+            <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium">{themeEnabled ? 'Dark mode enabled' : 'Light mode enabled'}</span>
             <div className="flex items-center">
-              <ToggleSwitch checked={themeEnabled} onChange={checked => { setThemeEnabled(checked); showToast(`Theme ${checked ? 'enabled' : 'disabled'}`); }} id="theme-toggle" />
+              <ToggleSwitch checked={themeEnabled} onChange={checked => { setThemeEnabled(checked); showToast(checked ? 'Dark mode enabled' : 'Light mode enabled'); }} id="theme-toggle" />
             </div>
           </div>
           <div className="w-full flex items-center justify-center py-2 sm:py-4">
