@@ -33,27 +33,27 @@ const Settings: NextPage = () => {
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <div className="settings-container mx-auto flex flex-col items-center justify-center">
-      <div className="settings-column flex flex-col gap-6 w-full mx-auto" style={{ width: '100dvh', height: '100vh' }}>
-        <div className="w-full flex flex-row items-center justify-between py-4 border-b gap-4">
-          <span className="text-xl font-medium">Notifications</span>
+    <div className="settings-container flex flex-col items-center justify-center min-h-screen w-full px-2 sm:px-4 md:px-8" style={{ minHeight: '100vh' }}>
+      <div className="settings-column flex flex-col gap-4 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl mx-auto bg-white rounded-lg shadow-md p-2 sm:p-4 md:p-8 lg:p-12 xl:p-16" style={{ width: '100%', minWidth: '0' }}>
+        <div className="w-full flex flex-row items-center justify-between py-2 sm:py-3 md:py-4 lg:py-6 xl:py-8 border-b gap-2 sm:gap-4 lg:gap-6 xl:gap-8">
+          <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium">Notifications</span>
           <div className="flex items-center">
             <ToggleSwitch checked={notificationEnabled} onChange={setNotificationEnabled} id="notification-toggle" />
           </div>
         </div>
-        <div className="w-full flex flex-row items-center justify-between py-4 border-b gap-4">
-          <span className="text-xl font-medium">Auto location</span>
+        <div className="w-full flex flex-row items-center justify-between py-2 sm:py-3 md:py-4 lg:py-6 xl:py-8 border-b gap-2 sm:gap-4 lg:gap-6 xl:gap-8">
+          <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium">Auto location</span>
           <div className="flex items-center">
             <ToggleSwitch checked={autoLocationEnabled} onChange={setAutoLocationEnabled} id="auto-location-toggle" />
           </div>
         </div>
-        <div className="w-full flex flex-row items-center justify-between py-4 border-b gap-4">
-          <span className="text-xl font-medium">Theme</span>
+        <div className="w-full flex flex-row items-center justify-between py-2 sm:py-3 md:py-4 lg:py-6 xl:py-8 border-b gap-2 sm:gap-4 lg:gap-6 xl:gap-8">
+          <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium">Theme</span>
           <div className="flex items-center">
             <ToggleSwitch checked={themeEnabled} onChange={setThemeEnabled} id="theme-toggle" />
           </div>
         </div>
-        <div className="w-full flex items-center justify-center py-4">
+        <div className="w-full flex items-center justify-center py-2 sm:py-4">
           <BackArrowButton />
         </div>
       </div>
