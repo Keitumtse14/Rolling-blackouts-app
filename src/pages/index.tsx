@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-  <main className="max-w-screen-sm mx-auto flex flex-col min-h-[100dvh] justify-start relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <main className="max-w-screen-sm mx-auto flex flex-col min-h-[100dvh] justify-start relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         <div>
           <SettingsIcon />
           <LoadSheddingInfo />
