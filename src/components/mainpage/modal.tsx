@@ -54,11 +54,15 @@ function MyModal() {
           </button>
         </div>
       )}
-      {/* Show area search results */}
-      {isLoading && searchTerm && <div className="mx-auto text-2xl">Searching...</div>}
-      {error && searchTerm && <div className="mx-auto text-2xl text-red-600">Error searching</div>}
-      {data && searchTerm && (
-        <div className="mx-auto text-xs mt-4">{JSON.stringify(data)}</div>
+      {/* Show area search results only if modal is open */}
+      {!isToggled && (
+        <>
+          {isLoading && searchTerm && <div className="mx-auto text-2xl">Searching...</div>}
+          {error && searchTerm && <div className="mx-auto text-2xl text-red-600">Error searching</div>}
+          {data && searchTerm && (
+            <div className="mx-auto text-xs mt-4">{JSON.stringify(data)}</div>
+          )}
+        </>
       )}
     </>
   );
