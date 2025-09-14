@@ -34,30 +34,33 @@ function MyModal() {
       {isToggled ? (
         <AddAreaInfo />
       ) : (
-        <div className='flex items-center justify-center'>
-          <input
-            className='border-solid border-black border-2 rounded mt-20 inline-block g'
-            type="search"
-            name="area-search"
-            id="search"
-            onChange={event => setSearchResult(event.target.value)}
-            onKeyDown={handleEvent}
-          />
-          <button className="ml-2 mt-[80px]" onClick={() => setIsToggled(!isToggled)} aria-label="Close">
-            <Image
-              src="/close-circle-svgrepo-com.svg"
-              alt="Close"
-              width={16}
-              height={16}
-              className="min-w-[1rem] min-h-[1rem]"
+        <div className='flex flex-col items-center justify-center'>
+          {/* Searching indicator above search bar */}
+          {isLoading && searchTerm && <div className="mx-auto text-2xl mb-2">Searching...</div>}
+          <div className='flex items-center justify-center'>
+            <input
+              className='border-solid border-black border-2 rounded mt-20 inline-block g'
+              type="search"
+              name="area-search"
+              id="search"
+              onChange={event => setSearchResult(event.target.value)}
+              onKeyDown={handleEvent}
             />
-          </button>
+            <button className="ml-2 mt-[80px]" onClick={() => setIsToggled(!isToggled)} aria-label="Close">
+              <Image
+                src="/close-circle-svgrepo-com.svg"
+                alt="Close"
+                width={16}
+                height={16}
+                className="min-w-[1rem] min-h-[1rem]"
+              />
+            </button>
+          </div>
         </div>
       )}
       {/* Show area search results only if modal is open */}
       {!isToggled && (
         <>
-          {isLoading && searchTerm && <div className="mx-auto text-2xl">Searching...</div>}
           {error && searchTerm && <div className="mx-auto text-2xl text-red-600">Error searching</div>}
           {data && searchTerm && (
             <div className="mx-auto text-xs mt-4">{JSON.stringify(data)}</div>
