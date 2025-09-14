@@ -35,8 +35,9 @@ function MyModal() {
         <AddAreaInfo />
       ) : (
         <div className='flex flex-col items-center justify-center'>
-          {/* Searching indicator above search bar */}
+          {/* Searching and error indicators above search bar */}
           {isLoading && searchTerm && <div className="mx-auto text-2xl mb-2">Searching...</div>}
+          {error && searchTerm && <div className="mx-auto text-2xl text-red-600 mb-2">{typeof error === 'string' ? error : 'Error searching'}</div>}
           <div className='flex items-center justify-center'>
             <input
               className='border-solid border-black border-2 rounded mt-20 inline-block g'
@@ -61,7 +62,6 @@ function MyModal() {
       {/* Show area search results only if modal is open */}
       {!isToggled && (
         <>
-          {error && searchTerm && <div className="mx-auto text-2xl text-red-600">Error searching</div>}
           {data && searchTerm && (
             <div className="mx-auto text-xs mt-4">{JSON.stringify(data)}</div>
           )}
