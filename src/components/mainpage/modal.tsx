@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
+import { STATUS_API_TOKEN } from '../../env/index';
 import AddAreaInfo from './add-area-info';
 
 function MyModal() {
@@ -26,7 +27,7 @@ function MyModal() {
       try {
         const response = await fetch(`https://developer.sepush.co.za/business/2.0/areas_nearby?lat=${lat}&lon=${lon}`, {
           headers: {
-            "token": "Your key"
+            "token": STATUS_API_TOKEN
           }
         });
         const result = await response.json();
@@ -51,7 +52,7 @@ function MyModal() {
       if (!searchTerm) return null;
       const response = await fetch(`https://developer.sepush.co.za/business/2.0/areas_search?text=${searchTerm}`, {
         headers: {
-          "token": "Your key"
+          "token": STATUS_API_TOKEN
         }
       });
       return response.json();
