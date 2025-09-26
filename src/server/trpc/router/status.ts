@@ -15,9 +15,10 @@ export const statusRouter = router({
         const { env } = await import("../../../env/server.mjs");
         // Check/reset allowance cache
         const saMidnight = getSouthAfricaMidnight();
-        if (!allowanceCache || Date.now() > allowanceCache.resetTime) {
+        if (allowanceCache && Date.now() > allowanceCache.resetTime) {
             allowanceCache = null;
         }
+
         // If allowance is cached and limit reached, block request
         if (allowanceCache && allowanceCache.count >= allowanceCache.limit) {
             throw new Error("API request limit reached. Try again after midnight South African time.");
