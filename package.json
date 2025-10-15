@@ -16,6 +16,7 @@
     "@trpc/react-query": "^10.0.0",
     "@trpc/server": "^10.0.0",
     "axios": "^1.2.2",
+    "dotenv": "^17.2.2",
     "eslint-plugin-import": "^2.26.0",
     "framer-motion": "^12.23.12",
     "json5": "^2.2.3",

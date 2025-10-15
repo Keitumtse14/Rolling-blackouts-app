@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
-import { STATUS_API_TOKEN } from '../../env/index';
+import { useQuery } from '@tanstack/react-query';
+import { trpc } from '../../utils/trpc';
 import AddAreaInfo from './add-area-info';
 
 function MyModal() {
@@ -11,8 +11,9 @@ function MyModal() {
   const [autoLocationLoading, setAutoLocationLoading] = useState(false);
   const [autoLocationError, setAutoLocationError] = useState('');
   const [autoLocationArea, setAutoLocationArea] = useState<null | { name: string; region: string }>(null);
-  // Auto location handler
-  const handleAutoLocation = async () => {
+  const autoLocationMutation = trpc.autoLocation.nearby.useMutation();
+
+  const handleAutoLocation = () => {
     setAutoLocationLoading(true);
     setAutoLocationError('');
     setAutoLocationArea(null);
@@ -25,19 +26,14 @@ function MyModal() {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
       try {
-        const response = await fetch(`https://developer.sepush.co.za/business/2.0/areas_nearby?lat=${lat}&lon=${lon}`, {
-          headers: {
-            "token": STATUS_API_TOKEN
-          }
-        });
-        const result = await response.json();
-        if (result.areas && result.areas.length > 0) {
-          setAutoLocationArea({ name: result.areas[0].name, region: result.areas[0].region });
+        const res = await autoLocationMutation.mutateAsync({ lat, lon });
+        if (res && res.name) {
+          setAutoLocationArea({ name: res.name, region: res.region });
         } else {
           setAutoLocationError('No areas found for your location.');
         }
-      } catch (err) {
-        setAutoLocationError('Failed to fetch area for your location.');
+      } catch (err: any) {
+        setAutoLocationError(err?.message || 'Failed to fetch area for your location.');
       }
       setAutoLocationLoading(false);
     }, (error) => {
@@ -46,19 +42,11 @@ function MyModal() {
     });
   };
 
-  const { data, isLoading, error } = useQuery<any, Error>({
-    queryKey: ['area-search', searchTerm],
-    queryFn: async () => {
-      if (!searchTerm) return null;
-      const response = await fetch(`https://developer.sepush.co.za/business/2.0/areas_search?text=${searchTerm}`, {
-        headers: {
-          "token": STATUS_API_TOKEN
-        }
-      });
-      return response.json();
-    },
-    enabled: !!searchTerm,
-  });
+  const searchQuery = trpc.autoLocation.search.useQuery(
+    { text: searchTerm },
+    { enabled: !!searchTerm }
+  );
+  const { data, isLoading, error } = searchQuery;
 
   const handleEvent = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
