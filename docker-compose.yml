@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      MOCK_MODE: "true" # default to mock-mode for display/demo
+    restart: unless-stopped
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      # MOCK_MODE is set in the Dockerfile by default; override here if needed
+      # MOCK_MODE: "true"
+    restart: unless-stopped

@@ -12,7 +12,12 @@ function getSouthAfricaMidnight() {
 
 export const statusRouter = router({
     get: publicProcedure.query(async () => {
-        const { env } = await import("../../../env/server.mjs");
+        const tokenModule = (await import("../../../env/server.mjs")) as { STATUS_API_TOKEN?: string };
+        const STATUS_API_TOKEN = tokenModule.STATUS_API_TOKEN ?? "";
+        if (process.env.MOCK_MODE === 'true') {
+            const { mockStatus, mockAllowance } = await import('../../../mocks/mockData');
+            return { status: mockStatus.status, allowance: mockAllowance.allowance };
+        }
         // Check/reset allowance cache
         const saMidnight = getSouthAfricaMidnight();
         if (allowanceCache && Date.now() > allowanceCache.resetTime) {
@@ -26,14 +31,14 @@ export const statusRouter = router({
         // Make status request
         const statusRes = await fetch("https://developer.sepush.co.za/business/2.0/status", {
             headers: {
-                token: env.STATUS_API_TOKEN,
+                token: STATUS_API_TOKEN,
             },
         });
         const statusData = await statusRes.json();
         // Make allowance request
         const allowanceRes = await fetch("https://developer.sepush.co.za/business/2.0/api_allowance", {
             headers: {
-                token: env.STATUS_API_TOKEN,
+                token: STATUS_API_TOKEN,
                 Accept: "application/json",
             },
         });

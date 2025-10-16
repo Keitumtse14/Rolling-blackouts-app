@@ -1,154 +1,54 @@
-@media (min-width: 1440px) {
-	main {
-		padding-top: 10rem;
-	}
-}
-#next {
-	/* ...existing code... */
-
-@media (min-width: 1200px) {
-
-	html, body {
-		min-height: 100vh;
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-
-	#next {
-		height: 100dvh;
-		min-width: 100vw;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-		margin-inline: auto;
-		box-shadow: 0 0 24px 0 rgba(0,0,0,0.08);
-		border-radius: 2rem;
-	}
-	.settings-bar {
-	right: 3rem;
-	top: 3rem;
-	}
-	img, svg {
-	width: clamp(3rem, 5vw, 4rem);
-	height: clamp(3rem, 5vw, 4rem);
-	}
-}
-/* Disable all scrolling */
-/* Removed overflow: hidden to prevent content clipping */
-/* Center main inside div#next */
-/* Remove bottom margin/padding from #next */
-/*
-#next {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	/* min-height: 100dvh; */
-	/* min-width: 100vw; */
-	/* height: 100dvh; */
-	/* width: 100vw; */
-	box-sizing: border-box;
-	margin-bottom: 0;
-	padding-bottom: 0;
-/* }
-*/
-/* Center main content for larger screens */
-@media (min-width: 768px) {
-	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	/* min-height: 100dvh; */
-		max-width: 900px;
-		box-sizing: border-box;
-	}
-	.flex {
-	justify-content: center;
-	align-items: center;
-	}
-}
-main {
-	box-sizing: border-box;
-	margin-top: 0;
-}
-
-.query-data {
-	margin-inline: auto;
-	display: block;
-	text-align: center;
-}
-
+/* Tailwind base must come first */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "tailwindcss/base";
-
-html {
-	min-height: 100vh;
-	margin-inline: auto;
-	box-sizing: border-box;
+/* Basic layout resets and app-wide styles */
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-/* Apply box-sizing globally */
+
 *, *::before, *::after {
-	box-sizing: border-box;
-}
-body, html {
-	font-family: 'Poppins', sans-serif;
+  box-sizing: inherit;
 }
 
-/* Clamp-based scaling for text, padding, margin, and SVGs */
-/* Responsive text sizing handled by media queries below */
+#next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
-/* Responsive main and spacing handled by media queries below */
+main {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
 
-/* Responsive icon sizing handled by media queries below */
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  main {
+	padding: 2rem;
+  }
+}
+
 @media (min-width: 1200px) {
-	main {
-		max-width: 1200px;
-		box-shadow: 0 0 24px 0 rgba(0,0,0,0.08);
-		border-radius: 2rem;
-	}
-	.settings-bar {
-	right: 3rem;
-	top: 3rem;
-	}
-	img, svg {
-	width: 4rem;
-	height: 4rem;
-	}
-	h1, h2, h3, h4, h5, h6, .text-3xl, .text-2xl, .text-xl, .text-lg, .text-md, .text-sm, .text-xs, span, p, button {
-		font-size: 2rem;
-		max-width: 60ch;
-		line-height: 1.6;
-	}
+  main {
+	padding: 3rem;
+	box-shadow: 0 0 24px 0 rgba(0,0,0,0.08);
+	border-radius: 1.5rem;
+  }
 }
 
-@media (min-width: 1440px) {
-	main {
-		/* No top padding */
-	}
-	img, svg {
-	width: 5rem;
-	height: 5rem;
-	}
-	h1, h2, h3, h4, h5, h6, .text-3xl, .text-2xl, .text-xl, .text-lg, .text-md, .text-sm, .text-xs, span, p, button {
-		font-size: 2.5rem;
-		max-width: 70ch;
-		line-height: 1.6;
-	}
+.query-data {
+  margin-inline: auto;
+  display: block;
+  text-align: center;
 }
+
