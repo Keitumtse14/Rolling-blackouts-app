@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "env": {
+    "MOCK_MODE": "true"
+  },
+  "build": {
+    "env": {
+      "MOCK_MODE": "true"
+    }
+  }
+}
