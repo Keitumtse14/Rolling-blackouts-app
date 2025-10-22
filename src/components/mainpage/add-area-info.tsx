@@ -1,15 +1,15 @@
-import { useState } from 'react'
 import MyModal from './modal'
 import Image from 'next/image';
 
+type Props = {
+  addAreaOpen: boolean;
+  setAddAreaOpen: (v: boolean) => void;
+};
 
-function AddArea() {
-
-  const [addAreaToggle, setAddAreaToggle] = useState(false)
-
+function AddArea({ addAreaOpen, setAddAreaOpen }: Props) {
   return <>
-    {addAreaToggle ? < MyModal /> : <button
-      onClick={() => setAddAreaToggle(!addAreaToggle)}
+    {addAreaOpen ? <MyModal onClose={() => setAddAreaOpen(false)} /> : <button
+      onClick={() => setAddAreaOpen(true)}
       className="flex items-center mx-auto my-40 hover:scale-110">
       <span className="text-3xl font-bold">Add Area</span>
       <div className="ml-4">

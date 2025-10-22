@@ -15,7 +15,7 @@ const BackButton: React.FC = () => {
         alt="Back"
         width={24}
         height={24}
-        className="mr-2"
+        className="mr-2 "
       />
       Back
     </button>

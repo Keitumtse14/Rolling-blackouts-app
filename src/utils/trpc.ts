@@ -14,6 +14,19 @@ const getBaseUrl = () => {
 export const trpc = createTRPCNext<AppRouter>({
   config() {
     return {
+      queryClientConfig: {
+        defaultOptions: {
+          queries: {
+            // Keep data fresh for 5 minutes by default
+            staleTime: 1000 * 60 * 5,
+            // Keep cache for 30 minutes before garbage collection
+            cacheTime: 1000 * 60 * 30,
+            // Don't refetch on mount or on window focus by default — app controls refresh explicitly
+            refetchOnMount: false,
+            refetchOnWindowFocus: false,
+          },
+        },
+      },
       transformer: superjson,
       links: [
         loggerLink({

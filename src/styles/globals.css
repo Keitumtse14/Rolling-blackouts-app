@@ -23,6 +23,22 @@ html, body {
   width: 100%;
 }
 
+/* Ensure the Next.js root and page container can grow to fill taller viewports.
+   Use a column flex layout so `main` can flex-grow and maintain spacing.
+   On large screens set a min-height to avoid the "auto" shrinking behavior. */
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh; /* prefer dynamic viewport units where supported */
+}
+
+/* Let main expand to fill available space inside #__next so footers sit at bottom */
+main {
+  display: block;
+  flex: 1 1 auto;
+}
+
+/* keep previous main rules (overridden above to add flex behavior) */
 main {
   box-sizing: border-box;
   width: 100%;
@@ -34,15 +50,17 @@ main {
 /* Responsive adjustments */
 @media (min-width: 768px) {
   main {
-	padding: 2rem;
+	/* padding: 1rem; */
   }
 }
 
 @media (min-width: 1200px) {
   main {
-	padding: 3rem;
-	box-shadow: 0 0 24px 0 rgba(0,0,0,0.08);
-	border-radius: 1.5rem;
+    /* padding: 3rem; */
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.08);
+    border-radius: 1.5rem;
+    /* set a sensible min-height on large screens so pages don't collapse */
+    min-height: calc(100dvh - 4rem);
   }
 }
 

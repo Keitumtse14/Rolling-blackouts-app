@@ -32,6 +32,12 @@ const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
+      {/* Demo badge when running in mock/demo mode */}
+      {process.env.NEXT_PUBLIC_MOCK_MODE === 'true' || process.env.MOCK_MODE === 'true' ? (
+        <div style={{ position: 'fixed', right: 12, top: 12, zIndex: 60 }} className="bg-yellow-300 text-xs px-2 py-1 rounded">
+          Demo Mode
+        </div>
+      ) : null}
       <Component {...pageProps} />
     </ThemeProvider>
   );
