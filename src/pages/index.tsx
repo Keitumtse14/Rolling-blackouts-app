@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-  <main className="max-w-5xl mx-auto flex flex-col min-h-[100dvh] justify-start relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-4 lg:px-0">
+      <main className="max-w-5xl mx-auto flex flex-col min-h-[100dvh] justify-start relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         <Header addAreaOpen={addAreaOpen} setAddAreaOpen={setAddAreaOpen} />
         <div>
           <LoadSheddingInfo />
