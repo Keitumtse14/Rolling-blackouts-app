@@ -16,7 +16,7 @@ html, body {
   box-sizing: inherit;
 }
 
-/* Ensure the Next.js root and page container can grow to fill taller viewports.
+E/* Ensure the Next.js root and page container can grow to fill taller viewports.
    Use a column flex layout so `main` can flex-grow and maintain spacing.
    On large screens set a min-height to avoid the "auto" shrinking behavior. */
 

@@ -8,7 +8,7 @@ type Props = {
 
 export default function Header({ addAreaOpen, setAddAreaOpen }: Props) {
     return (
-        <div className="w-full max-w-5xl mx-auto flex items-center justify-between">
+        <div className="w-full max-w-5xl mx-auto flex items-center justify-between pb-10">
             {/* Left: either back control (when modal open) or an empty spacer so spacing matches */}
             <div className="flex items-center">
                 {addAreaOpen ? (
