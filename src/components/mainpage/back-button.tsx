@@ -7,7 +7,7 @@ const BackButton: React.FC = () => {
   return (
     <button
       onClick={() => router.back()}
-      className="flex items-center px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium"
+      className="flex items-center px-4 py-2 rounded hover:scale-110"
       aria-label="Go back"
     >
       <Image
